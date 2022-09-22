@@ -30,14 +30,12 @@ confirmação = pyautogui.confirm(text="O programa de envio de atividades automa
 
 
 if confirmação == "Ok":
-    pyautogui.pause = 7
-
 
     #Inicializar o WhatsApp desktop
-    pyautogui.click(73, 1065)
+    time.sleep(2)
+    pyautogui.hotkey("winleft")
     time.sleep(0.3)
-    pyautogui.hotkey("shift", "w")
-    pyautogui.write("hatsApp")
+    pyautogui.write("WhatsApp")
     time.sleep(0.3)
     pyautogui.press("enter")
     time.sleep(15) #Esperar carregar a janela
@@ -45,14 +43,14 @@ if confirmação == "Ok":
 
     #Entrar no grupo e copiar a mensagem
     pyautogui.click(156, 256)
-    time.sleep(0.3)
+    time.sleep(2.3)
     pyautogui.moveTo(927, 946)
-    time.sleep(0.3)
+    time.sleep(2.3)
     pyautogui.mouseDown()
-    time.sleep(0.3)
+    time.sleep(2.3)
     pyautogui.moveTo(701, 545)
     # pyautogui.hotkey("ctrlleft", "c") #Essa Mensagem é automatizada
-    time.sleep(0.3)
+    time.sleep(2.3)
     pyautogui.mouseUp()
 
 
