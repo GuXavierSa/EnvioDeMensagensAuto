@@ -14,17 +14,20 @@ import random
 #Funções
 
 def random_num ():
-    x = random.randint(0,6)
+    x = random.randint(0,5)
     return x
 
 #Definição de listas para as posições
 # turmas = ["Rob. Bas. A", "Rob. Bas. B", "Rob. Auto. A", "Rob. Auto. B", "Info. Bas. A", "Info. Bas. B", "Info. Apl. A", "Info. Apl. B", "Cri. Ino.", "1SAT", "2SAT", "3SAT", "4SAT", "1SIT", "2SIT", "3SIT", "4SIT", "1SRT", "2SRT", "3SRT", "4SRT"] 
-turmas = ["Xavier CEAP", "Vitor Ceap", "Rian CEAP", "Rodolfo CEAP"] 
-pesquisa_x = [270, 271, 272, 273, 274, 275, 276]
-pesquisa_y = [105, 106, 107, 108, 109, 110, 111]
+turmas = ["Xavier CEAP"] 
+pesquisa_x = [270, 271, 272, 273, 274, 275]
+pesquisa_y = [104, 105, 106, 107, 108, 109]
 
-mensagem = pyautogui.prompt(text='Digite a mensagem que será enviada nos grupos.', title='Envio de Atividades', default=' ')
-# mensagem = " "
+#mensagem = pyautogui.prompt(text='Digite a mensagem que será enviada nos grupos.', title='Envio de Atividades', default=' ')
+mensagem = """adsadas
+asdasdas
+asdasd
+asdasda"""
 print(mensagem)
 confirmação = pyautogui.confirm(text="O programa de envio de atividades automatizados irá começar, porfavor, tire suas mãos do teclado e mouse, a partir de agora seu computador será controlado pelo sistema", title="Envio de Atividades", buttons=["Ok", "Cancelar"])
 
@@ -38,48 +41,28 @@ if confirmação == "Ok":
     pyautogui.write("WhatsApp")
     time.sleep(0.3)
     pyautogui.press("enter")
-    time.sleep(15) #Esperar carregar a janela
-
-
-    #Entrar no grupo e copiar a mensagem
-    pyautogui.click(156, 256)
-    time.sleep(2.3)
-    pyautogui.moveTo(927, 946)
-    time.sleep(2.3)
-    pyautogui.mouseDown()
-    time.sleep(2.3)
-    pyautogui.moveTo(701, 545)
-    # pyautogui.hotkey("ctrlleft", "c") #Essa Mensagem é automatizada
-    time.sleep(2.3)
-    pyautogui.mouseUp()
-
+    time.sleep(4) #Esperar carregar a janela
+    pyautogui.press("f11")
 
     # Envio de mensagem
-    loop = 0
-    while loop != len(turmas):
+    for i in range(len(turmas)):
         x = random_num()
         y = random_num()
         #Pesquisar o grupo
         time.sleep(1)
         pyautogui.click(pesquisa_x[x], pesquisa_y[y])
         time.sleep(1)
-        pyautogui.write(turmas[loop])
+        pyautogui.write(turmas[i])
         time.sleep(1)
         pyautogui.press("enter")
         time.sleep(1)
 
         #Enviando a mensagem
-        # pyautogui.hotkey("ctrlleft", "v")
         pyautogui.write(mensagem)
         time.sleep(1.5)
         pyautogui.press("enter")
-        loop = loop + 1
-        if loop == len(turmas):
-            pyautogui.click(1897, 15)
-            pyautogui.alert(text="Script executado com sucesso, bom trabalho", title="Finalizado", button="Ok")
-            break
-        else:
-            continue
+        i =+ 1
+
         
 else:
     exit()
